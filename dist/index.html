@@ -12,7 +12,7 @@
       rel="stylesheet" />
   </head>
   <body class="font-[Silkscreen] bg-red-200">
-    <main>
+    <main class="h-screen">
       <div class="flex flex-col items-center justify-center h-screen title-screen">
         <h1 class="text-4xl md:text-7xl">Battleship</h1>
         <div class="mt-4">
@@ -22,10 +22,12 @@
           </button>
         </div>
       </div>
-      <div class="container mx-auto choose-ships hidden">
-        <h2 class="text-2xl">Place Your Ships</h2>
-        <h3 class="text-xl">Press R to Rotate Your Ships</h3>
-        <div class="grid grid-cols-8 grid-rows-8"></div>
+      <div
+        class="container mx-auto flex flex-col justify-center items-center choose-ships hide h-screen">
+        <h2 class="text-lg md:text-2xl lg:text-4xl">Place Your Ships</h2>
+        <h3 class="text-lg md:text-xl lg:text-3xl">Press R to Rotate Your Ships</h3>
+        <div
+          class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4"></div>
       </div>
     </main>
     <script src="main.js"></script>
