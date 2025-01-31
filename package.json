@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "tw-build": "tailwindcss -i ./dist/styles/style.css -o ./dist/styles/output.css",
     "tw-watch": "tailwindcss -i ./dist/styles/style.css -o ./dist/styles/output.css --watch"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "webpack": "^5.97.1",
