@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+
+.shown {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}

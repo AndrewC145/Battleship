@@ -13,13 +13,19 @@
   </head>
   <body class="font-[Silkscreen] bg-red-200">
     <main>
-      <div class="flex flex-col items-center justify-center h-screen">
-        <h1 class="text-7xl">Battleship</h1>
+      <div class="flex flex-col items-center justify-center h-screen title-screen">
+        <h1 class="text-4xl md:text-7xl">Battleship</h1>
         <div class="mt-4">
-          <button class="text-center text-white text-4xl p-3 bg-blue-600 rounded-xl">
+          <button
+            class="text-center text-white text-2xl md:text-4xl p-3 bg-blue-600 rounded-xl cursor-pointer start-game">
             Start Game
           </button>
         </div>
+      </div>
+      <div class="container mx-auto choose-ships hidden">
+        <h2 class="text-2xl">Place Your Ships</h2>
+        <h3 class="text-xl">Press R to Rotate Your Ships</h3>
+        <div class="grid grid-cols-8 grid-rows-8"></div>
       </div>
     </main>
     <script src="main.js"></script>
