@@ -1,5 +1,5 @@
-import { initializeUI } from './display';
+import { initializeUI } from "./display";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   initializeUI();
 });

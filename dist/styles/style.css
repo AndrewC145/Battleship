@@ -1,8 +1,4 @@
-@import 'tailwindcss';
-
-.shown {
-  display: flex;
-}
+@import "tailwindcss";
 
 .hide {
   display: none;
