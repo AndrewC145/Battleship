@@ -40,7 +40,16 @@
           <button class="text-blue-600 text-lg md:text-2xl cursor-pointer">Reset</button>
           <button class="text-blue-600 text-lg md:text-2xl cursor-pointer">Random</button>
         </div>
-        <button class="bg-blue-600 cursor-pointer text-white text-center text-xl p-2 mt-4">Play Game</button>
+        <button class="bg-blue-600 cursor-pointer text-white text-center text-xl p-2 mt-4 play-game">Play Game</button>
+      </div>
+      <div class="container mx-auto flex flex-col justify-center items-center game-screen hide h-screen">
+        <h1 class="text-4xl md:text-7xl mb-4 md:mb-8">Battleship</h1>
+        <div class="flex flex-col gap-4 md:flex-row md:gap-28 p-3 md:p-6">
+          <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 player-board">
+          </div>
+          <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 enemy-board">
+          </div>
+        </div>
       </div>
     </main>
     <script src="main.js"></script>

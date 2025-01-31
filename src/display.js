@@ -1,4 +1,5 @@
 const startGame = document.querySelector('.start-game');
+const playGame = document.querySelector(".play-game")
 
 export function initializeUI() {
   startGame.addEventListener('click', () => {
@@ -8,10 +9,19 @@ export function initializeUI() {
     chooseShips.classList.remove('hide');
     createSelectionBoard();
   });
+
+  playGame.addEventListener("click", () => {
+    const chooseShips = document.querySelector('.choose-ships');
+    chooseShips.classList.add('hide');
+    const gameScreen = document.querySelector('.game-screen');
+    gameScreen.classList.remove('hide');
+  });
 }
 
 function createSelectionBoard() {
   const selectionBoard = document.querySelector('.selection-grid');
+  const playerBoard = document.querySelector('.player-board');
+  const enemyBoard = document.querySelector('.enemy-board');
 
   for (let i = 0; i < 64; i++) {
     const cell = document.createElement('div');
@@ -20,5 +30,7 @@ function createSelectionBoard() {
     cell.style.border = '1px solid black';
     cell.style.cursor = 'pointer';
     selectionBoard.appendChild(cell);
+    playerBoard.appendChild(cell.cloneNode());
+    enemyBoard.appendChild(cell.cloneNode());
   }
 }
