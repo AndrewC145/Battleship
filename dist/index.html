@@ -20,7 +20,7 @@
         <h1 class="text-4xl md:text-7xl">Battleship</h1>
         <div class="mt-4">
           <button
-            class="text-center text-white text-2xl md:text-4xl p-3 bg-blue-600 rounded-xl cursor-pointer start-game"
+            class="text-center text-white text-2xl md:text-4xl p-3 bg-blue-600 rounded-xl cursor-pointer start-game mt-4"
           >
             Start Game
           </button>
@@ -36,6 +36,11 @@
         <div
           class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4"
         ></div>
+        <div class="flex justify-center items-center gap-6">
+          <button class="text-blue-600 text-lg md:text-2xl cursor-pointer">Reset</button>
+          <button class="text-blue-600 text-lg md:text-2xl cursor-pointer">Random</button>
+        </div>
+        <button class="bg-blue-600 cursor-pointer text-white text-center text-xl p-2 mt-4">Play Game</button>
       </div>
     </main>
     <script src="main.js"></script>
