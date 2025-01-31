@@ -563,6 +563,9 @@
   .grid {
     display: grid;
   }
+  .inline-block {
+    display: inline-block;
+  }
   .inline-flex {
     display: inline-flex;
   }
@@ -574,6 +577,9 @@
   }
   .h-screen {
     height: 100vh;
+  }
+  .w-full {
+    width: 100%;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -685,14 +691,9 @@
       flex-direction: row;
     }
   }
-  .md\:gap-8 {
+  .md\:gap-10 {
     @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:gap-12 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 12);
+      gap: calc(var(--spacing) * 10);
     }
   }
   .md\:gap-28 {
@@ -737,6 +738,11 @@
   .lg\:grid-rows-\[repeat\(8\,3rem\)\] {
     @media (width >= 64rem) {
       grid-template-rows: repeat(8,3rem);
+    }
+  }
+  .lg\:gap-28 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 28);
     }
   }
   .lg\:text-3xl {

@@ -44,10 +44,16 @@
       </div>
       <div class="container mx-auto flex flex-col justify-center items-center game-screen hide h-screen">
         <h1 class="text-4xl md:text-7xl mb-4 md:mb-8">Battleship</h1>
-        <div class="flex flex-col gap-4 md:flex-row md:gap-28 p-3 md:p-6">
-          <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 player-board">
+        <div class="flex flex-col gap-4 md:flex-row md:gap-10 lg:gap-28 p-3 md:p-6">
+          <div class="flex flex-col items-center">
+            <h4 class=" text-lg md:text-2xl inline-block">Your Board</h4>
+            <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 player-board">
+            </div>
           </div>
-          <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 enemy-board">
+          <div class="flex flex-col items-center">
+            <h4 class=" text-lg md:text-2xl inline-block">Enemy Board</h4>
+            <div class="grid grid-cols-[repeat(8,2rem)] grid-rows-[repeat(8,2rem)] md:grid-cols-[repeat(8,2.5rem)] md:grid-rows-[repeat(8,2.5rem)] lg:grid-cols-[repeat(8,3rem)] lg:grid-rows-[repeat(8,3rem)] selection-grid p-4 enemy-board">
+            </div>
           </div>
         </div>
       </div>
