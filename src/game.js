@@ -21,8 +21,10 @@ class Gameboard {
     this.ships = [];
   }
 
-  placeShip(ship, xCoord, yCoord, isVertical) {
+  placeShip(shipType, xCoord, yCoord, isVertical) {
     // Check if the ship can be placed within the board boundaries
+    const ship = new Ship(shipType);
+
     if (isVertical) {
       if (yCoord + ship.length > this.board[0].length) {
         throw new Error("Ship out of bounds");
@@ -70,8 +72,8 @@ class Gameboard {
 
 class Player {
   constructor() {
-    this.player = new Gameboard();
-    this.enemy = new Gameboard();
+    this.gameBoard = new Gameboard();
+    this.enemyBoard = new Gameboard();
   }
 }
 

@@ -1,0 +1,57 @@
+import { Ship, Gameboard, Player } from "./game";
+
+const startGame = document.querySelector(".start-game");
+const playGame = document.querySelector(".play-game");
+
+const gameBoard = new Gameboard();
+const player = new Player();
+const enemy = new Player();
+
+export function displayGame() {
+  startGame.addEventListener("click", () => {
+    console.log("Player GameBoard:", player.gameBoard);
+    console.log("Enemy GameBoard:", enemy.gameBoard);
+    createBoards();
+    placeShips();
+  });
+}
+
+function placeShips() {
+  const playerBoard = document.querySelector(".player-board");
+  player.gameBoard.placeShip(5, 0, 0, true);
+
+  for (let i = 0; i < player.gameBoard.board.length; i++) {
+    for (let j = 0; j < player.gameBoard.board[i].length; j++) {
+      if (player.gameBoard.board[i][j] instanceof Ship) {
+        playerBoard.children[i * 8 + j].style.backgroundColor = "gray";
+      }
+    }
+  }
+}
+
+function createBoards() {
+  const playerBoard = document.querySelector(".player-board");
+  const enemyBoard = document.querySelector(".enemy-board");
+
+  for (let i = 0; i < player.gameBoard.board.length; i++) {
+    for (let j = 0; j < player.gameBoard.board[i].length; j++) {
+      const cell = document.createElement("div");
+      cell.style.width = "100%";
+      cell.style.height = "100%";
+      cell.style.border = "1px solid black";
+      cell.style.cursor = "pointer";
+      playerBoard.appendChild(cell);
+    }
+  }
+
+  for (let i = 0; i < enemy.gameBoard.board.length; i++) {
+    for (let j = 0; j < enemy.gameBoard.board[i].length; j++) {
+      const cell = document.createElement("div");
+      cell.style.width = "100%";
+      cell.style.height = "100%";
+      cell.style.border = "1px solid black";
+      cell.style.cursor = "pointer";
+      enemyBoard.appendChild(cell);
+    }
+  }
+}

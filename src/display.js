@@ -20,8 +20,6 @@ export function initializeUI() {
 
 function createSelectionBoard() {
   const selectionBoard = document.querySelector(".selection-grid");
-  const playerBoard = document.querySelector(".player-board");
-  const enemyBoard = document.querySelector(".enemy-board");
 
   for (let i = 0; i < 64; i++) {
     const cell = document.createElement("div");
@@ -30,7 +28,5 @@ function createSelectionBoard() {
     cell.style.border = "1px solid black";
     cell.style.cursor = "pointer";
     selectionBoard.appendChild(cell);
-    playerBoard.appendChild(cell.cloneNode());
-    enemyBoard.appendChild(cell.cloneNode());
   }
 }
