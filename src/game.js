@@ -30,7 +30,7 @@ class Gameboard {
         throw new Error("Ship out of bounds");
       }
     } else {
-      if (row + ship.length - 1 > this.board[0].length) {
+      if (row + ship.length - 1 > this.board.length) {
         throw new Error("Ship out of bounds");
       }
     }

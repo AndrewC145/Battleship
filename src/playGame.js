@@ -13,6 +13,7 @@ export function displayGame() {
     placeEnemyShips();
     placePlayerShips();
     attack();
+    restartGame();
   });
 }
 
@@ -51,6 +52,22 @@ function placeEnemyShips() {
         enemyBoard.children[i * 8 + j].style.backgroundColor = "transparent";
       }
     }
+  }
+}
+
+function restartGame() {
+  if (
+    player.gameBoard.ships.every((Ship) => Ship.isSunk()) ||
+    enemy.gameBoard.ships.every((Ship) => Ship.isSunk())
+  ) {
+    const playAgain = document.querySelector(".play-again");
+    const restartOverlay = document.querySelector(".restart-game");
+
+    restartOverlay.classList.remove("hide");
+
+    playAgain.addEventListener("click", () => {
+      location.reload();
+    });
   }
 }
 
@@ -120,6 +137,7 @@ function attack() {
 
     applyCellStyles(cell, isHit);
     applyCellStyles(playerCell, isPlayerHit);
+    restartGame();
   });
 }
 
