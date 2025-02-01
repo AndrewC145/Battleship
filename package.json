@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
+    "serve": "webpack serve",
     "tw-build": "tailwindcss -i ./dist/styles/style.css -o ./dist/styles/output.css",
     "tw-watch": "tailwindcss -i ./dist/styles/style.css -o ./dist/styles/output.css --watch"
   },
