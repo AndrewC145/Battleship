@@ -82,6 +82,7 @@ function createBoards() {
 function attack() {
   const enemyBoard = document.querySelector(".enemy-board");
   const playerBoard = document.querySelector(".player-board");
+  let previousMoves = [];
 
   enemyBoard.addEventListener("click", (e) => {
     const cell = e.target;
@@ -95,10 +96,23 @@ function attack() {
 
     const isHit = enemy.gameBoard.receiveAttack(row, col);
 
-    const playerRow = Math.floor(Math.random() * 8);
-    const playerCol = Math.floor(Math.random() * 8);
+    let playerRow = Math.floor(Math.random() * 8);
+    let playerCol = Math.floor(Math.random() * 8);
     const isPlayerHit = player.gameBoard.receiveAttack(playerRow, playerCol);
-    const playerCell = playerBoard.children[playerRow * 8 + playerCol];
+    let playerCell = playerBoard.children[playerRow * 8 + playerCol];
+
+    while (
+      previousMoves.some(
+        (move) => move[0] === playerRow && move[1] === playerCol,
+      )
+    ) {
+      playerRow = Math.floor(Math.random() * 8);
+      playerCol = Math.floor(Math.random() * 8);
+    }
+
+    let computerMoves = [playerRow, playerCol];
+    previousMoves.push(computerMoves);
+    console.log(previousMoves);
 
     applyCellStyles(cell, isHit);
     applyCellStyles(playerCell, isPlayerHit);
