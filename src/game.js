@@ -44,4 +44,11 @@ class Gameboard {
   }
 }
 
+class Player {
+  constructor() {
+    this.player = new Gameboard();
+    this.enemy = new Gameboard();
+  }
+}
+
 module.exports = { Ship };
