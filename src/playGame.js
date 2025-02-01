@@ -13,6 +13,7 @@ export function displayGame() {
     console.log("Enemy GameBoard:", enemy.gameBoard);
     createBoards();
     placeShips();
+    attack();
   });
 }
 
@@ -74,4 +75,24 @@ function createBoards() {
       enemyBoard.appendChild(cell);
     }
   }
+}
+
+function attack() {
+  const enemyBoard = document.querySelector(".enemy-board");
+
+  enemyBoard.addEventListener("click", (e) => {
+    const cell = e.target;
+    const row = Math.floor(
+      Array.from(cell.parentElement.children).indexOf(cell) / 8,
+    );
+    const col = Array.from(cell.parentElement.children).indexOf(cell) % 8;
+
+    const isHit = player.gameBoard.receiveAttack(row, col);
+
+    if (isHit) {
+      cell.style.backgroundColor = "lightred";
+    } else {
+      cell.style.backgroundColor = "lightblue";
+    }
+  });
 }
