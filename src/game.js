@@ -26,11 +26,11 @@ class Gameboard {
     const ship = new Ship(shipType);
 
     if (isVertical) {
-      if (col + ship.length > this.board[0].length) {
+      if (col + ship.length - 1 > this.board.length) {
         throw new Error("Ship out of bounds");
       }
     } else {
-      if (row + ship.length > this.board.length) {
+      if (row + ship.length - 1 > this.board[0].length) {
         throw new Error("Ship out of bounds");
       }
     }

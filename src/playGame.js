@@ -28,10 +28,10 @@ function placeShips() {
   player.gameBoard.placeShip(2, 4, 0, false);
 
   enemy.gameBoard.placeShip(5, 0, 0, false);
-  enemy.gameBoard.placeShip(4, 1, 0, false);
-  enemy.gameBoard.placeShip(3, 2, 0, false);
-  enemy.gameBoard.placeShip(3, 3, 0, false);
-  enemy.gameBoard.placeShip(2, 4, 0, false);
+  enemy.gameBoard.placeShip(4, 2, 4, true);
+  enemy.gameBoard.placeShip(3, 2, 1, true);
+  enemy.gameBoard.placeShip(3, 5, 6, true);
+  enemy.gameBoard.placeShip(2, 6, 1, false);
 
   for (let i = 0; i < player.gameBoard.board.length; i++) {
     for (let j = 0; j < player.gameBoard.board[i].length; j++) {
@@ -44,7 +44,7 @@ function placeShips() {
   for (let i = 0; i < enemy.gameBoard.board.length; i++) {
     for (let j = 0; j < enemy.gameBoard.board[i].length; j++) {
       if (enemy.gameBoard.board[i][j] instanceof Ship) {
-        enemyBoard.children[i * 8 + j].style.backgroundColor = "transparent";
+        enemyBoard.children[i * 8 + j].style.backgroundColor = "red";
       }
     }
   }
