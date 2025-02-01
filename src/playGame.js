@@ -18,7 +18,7 @@ export function displayGame() {
 
 function placeShips() {
   const playerBoard = document.querySelector(".player-board");
-  player.gameBoard.placeShip(5, 0, 0, true);
+  player.gameBoard.placeShip(5, 0, 0, false);
 
   for (let i = 0; i < player.gameBoard.board.length; i++) {
     for (let j = 0; j < player.gameBoard.board[i].length; j++) {
