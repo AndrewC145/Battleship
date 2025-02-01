@@ -22,16 +22,40 @@ class Gameboard {
   }
 
   placeShip(ship, xCoord, yCoord, isVertical) {
+    // Check if the ship can be placed within the board boundaries
     if (isVertical) {
-      for (let i = 0; i < ship.length; i++) {
-        this.board[xCoord][yCoord + i] = ship;
+      if (yCoord + ship.length > this.board[0].length) {
+        throw new Error("Ship out of bounds");
       }
     } else {
-      for (let i = 0; i < ship.length; i++) {
+      if (xCoord + ship.length > this.board.length) {
+        throw new Error("Ship out of bounds");
+      }
+    }
+
+    // Check for overlap with existing ships
+    for (let i = 0; i < ship.length; i++) {
+      if (isVertical) {
+        if (this.board[xCoord][yCoord + i] !== null) {
+          throw new Error("Ship overlaps with another ship");
+        }
+      } else {
+        if (this.board[xCoord + i][yCoord] !== null) {
+          throw new Error("Ship overlaps with another ship");
+        }
+      }
+    }
+
+    // Place the ship on the board
+    for (let i = 0; i < ship.length; i++) {
+      if (isVertical) {
+        this.board[xCoord][yCoord + i] = ship;
+      } else {
         this.board[xCoord + i][yCoord] = ship;
       }
     }
 
+    // Store the ship in the ships array
     this.ships.push(ship);
   }
 
@@ -51,4 +75,4 @@ class Player {
   }
 }
 
-module.exports = { Ship };
+module.exports = { Ship, Gameboard, Player };
