@@ -1,9 +1,7 @@
 import { Ship, Gameboard, Player } from "./game";
 
 const startGame = document.querySelector(".start-game");
-const playGame = document.querySelector(".play-game");
 
-const gameBoard = new Gameboard();
 const player = new Player();
 const enemy = new Player();
 
@@ -12,20 +10,34 @@ export function displayGame() {
     console.log("Player GameBoard:", player.gameBoard);
     console.log("Enemy GameBoard:", enemy.gameBoard);
     createBoards();
-    placeShips();
+    placeEnemyShips();
+    placePlayerShips();
     attack();
   });
 }
 
-function placeShips() {
+function placePlayerShips() {
   const playerBoard = document.querySelector(".player-board");
-  const enemyBoard = document.querySelector(".enemy-board");
+  const selectionGrid = document.querySelector(".selection-grid");
 
   player.gameBoard.placeShip(5, 0, 0, false);
-  player.gameBoard.placeShip(4, 1, 0, false);
-  player.gameBoard.placeShip(3, 2, 0, false);
-  player.gameBoard.placeShip(3, 3, 0, false);
-  player.gameBoard.placeShip(2, 4, 0, false);
+  player.gameBoard.placeShip(4, 2, 4, true);
+  player.gameBoard.placeShip(3, 2, 1, true);
+  player.gameBoard.placeShip(3, 5, 6, true);
+  player.gameBoard.placeShip(2, 6, 1, false);
+
+  for (let i = 0; i < player.gameBoard.board.length; i++) {
+    for (let j = 0; j < player.gameBoard.board[i].length; j++) {
+      if (player.gameBoard.board[i][j] instanceof Ship) {
+        playerBoard.children[i * 8 + j].style.backgroundColor = "grey";
+        selectionGrid.children[i * 8 + j].style.backgroundColor = "grey";
+      }
+    }
+  }
+}
+
+function placeEnemyShips() {
+  const enemyBoard = document.querySelector(".enemy-board");
 
   enemy.gameBoard.placeShip(5, 0, 0, false);
   enemy.gameBoard.placeShip(4, 2, 4, true);
@@ -33,18 +45,10 @@ function placeShips() {
   enemy.gameBoard.placeShip(3, 5, 6, true);
   enemy.gameBoard.placeShip(2, 6, 1, false);
 
-  for (let i = 0; i < player.gameBoard.board.length; i++) {
-    for (let j = 0; j < player.gameBoard.board[i].length; j++) {
-      if (player.gameBoard.board[i][j] instanceof Ship) {
-        playerBoard.children[i * 8 + j].style.backgroundColor = "gray";
-      }
-    }
-  }
-
   for (let i = 0; i < enemy.gameBoard.board.length; i++) {
     for (let j = 0; j < enemy.gameBoard.board[i].length; j++) {
       if (enemy.gameBoard.board[i][j] instanceof Ship) {
-        enemyBoard.children[i * 8 + j].style.backgroundColor = "red";
+        enemyBoard.children[i * 8 + j].style.backgroundColor = "transparent";
       }
     }
   }
