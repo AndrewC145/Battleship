@@ -61,6 +61,7 @@ function createBoards() {
       cell.style.height = "100%";
       cell.style.border = "1px solid black";
       cell.style.cursor = "pointer";
+      cell.className = "cell";
       playerBoard.appendChild(cell);
     }
   }
@@ -72,6 +73,7 @@ function createBoards() {
       cell.style.height = "100%";
       cell.style.border = "1px solid black";
       cell.style.cursor = "pointer";
+      cell.className = "cell";
       enemyBoard.appendChild(cell);
     }
   }
@@ -79,20 +81,40 @@ function createBoards() {
 
 function attack() {
   const enemyBoard = document.querySelector(".enemy-board");
+  const playerBoard = document.querySelector(".player-board");
 
   enemyBoard.addEventListener("click", (e) => {
     const cell = e.target;
+
+    if (!cell.className.includes("cell")) return;
+
     const row = Math.floor(
       Array.from(cell.parentElement.children).indexOf(cell) / 8,
     );
     const col = Array.from(cell.parentElement.children).indexOf(cell) % 8;
 
-    const isHit = player.gameBoard.receiveAttack(row, col);
+    const isHit = enemy.gameBoard.receiveAttack(row, col);
 
-    if (isHit) {
-      cell.style.backgroundColor = "lightred";
-    } else {
-      cell.style.backgroundColor = "lightblue";
-    }
+    const playerRow = Math.floor(Math.random() * 8);
+    const playerCol = Math.floor(Math.random() * 8);
+    const isPlayerHit = player.gameBoard.receiveAttack(playerRow, playerCol);
+    const playerCell = playerBoard.children[playerRow * 8 + playerCol];
+
+    applyCellStyles(cell, isHit);
+    applyCellStyles(playerCell, isPlayerHit);
   });
+}
+
+function applyCellStyles(cell, isHit) {
+  if (isHit) {
+    cell.style.backgroundColor = "rgb(173, 106, 106)";
+    cell.style.backgroundImage =
+      "url('../dist/images/x-symbol-svgrepo-com.svg')";
+  } else {
+    cell.style.backgroundColor = "rgb(102, 171, 189)";
+    cell.style.backgroundImage = "url('../dist/images/circle-svgrepo-com.svg')";
+  }
+  cell.style.backgroundSize = "100%";
+  cell.style.backgroundRepeat = "no-repeat";
+  cell.style.pointerEvents = "none";
 }
