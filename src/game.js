@@ -68,6 +68,13 @@ class Gameboard {
     }
     return false;
   }
+
+  reset() {
+    this.board = Array(8)
+      .fill(null)
+      .map(() => Array(8).fill(null));
+    this.ships = [];
+  }
 }
 
 class Player {

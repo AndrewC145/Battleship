@@ -7,8 +7,6 @@ const enemy = new Player();
 
 export function displayGame() {
   startGame.addEventListener("click", () => {
-    console.log("Player GameBoard:", player.gameBoard);
-    console.log("Enemy GameBoard:", enemy.gameBoard);
     createBoards();
     placeEnemyShips();
     placePlayerShips();
@@ -62,11 +60,20 @@ function restartGame() {
   ) {
     const playAgain = document.querySelector(".play-again");
     const restartOverlay = document.querySelector(".restart-game");
+    const playerBoard = document.querySelector(".player-board");
+    const enemyBoard = document.querySelector(".enemy-board");
 
     restartOverlay.classList.remove("hide");
 
     playAgain.addEventListener("click", () => {
-      location.reload();
+      restartOverlay.classList.add("hide");
+      playerBoard.innerHTML = "";
+      enemyBoard.innerHTML = "";
+      player.gameBoard.reset();
+      enemy.gameBoard.reset();
+      createBoards();
+      placeEnemyShips();
+      placePlayerShips();
     });
   }
 }
@@ -133,7 +140,6 @@ function attack() {
 
     let computerMoves = [playerRow, playerCol];
     previousMoves.push(computerMoves);
-    console.log(previousMoves);
 
     applyCellStyles(cell, isHit);
     applyCellStyles(playerCell, isPlayerHit);
