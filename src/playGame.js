@@ -1,4 +1,4 @@
-import { Ship, Gameboard, Player } from "./game";
+import { Ship, Player } from "./game";
 
 const startGame = document.querySelector(".start-game");
 
